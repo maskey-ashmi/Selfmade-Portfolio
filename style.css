@@ -1,0 +1,361 @@
+html {
+    scroll-behavior: smooth;
+}
+body{
+    background-size: 100%;
+    margin:0;
+    padding:0;
+}
+.navbar{
+    background-color: rgba(255, 255, 255, 0.6);
+    position: sticky;
+    top:0;
+    z-index: 10;
+    padding: 12px 20px; 
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    gap: 20px;
+    text-align: right;
+    text-decoration: none;
+}
+.navbar ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba(99, 30, 142, 0.9);
+}
+.navbar ul li a:active {
+    border-bottom: 2px solid rgba(99, 30, 142, 0.9);
+}
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(99, 30, 142, 0.9);
+    margin-right: auto; 
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 100px 210px;
+    gap: 300px; 
+    background-image: url('assets/herosection-bg.png');
+    background-size: cover;
+
+}
+
+/* Image styling */
+img {
+    width: 400px;
+    height: auto; 
+    border-radius: 12px;
+    position: relative;
+    top: 30px;
+}
+
+
+.text-block {
+    flex: 1; 
+    text-align: center; 
+    position: relative;
+    bottom: -30px;
+}
+
+.text-block h1 {
+    font-size: 44px;
+    color: rgba(99, 30, 142, 0.564);
+    margin-bottom: 20px; 
+}
+
+.text-block p {
+    font-size: 18px;
+    color: rgba(99, 30, 142, 0.6);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.Projects{
+    text-align: center;
+    margin-top: 50px;
+    padding: 12px 20px;
+    background-image: url('assets/Bg.png');
+    background-size: cover;
+}
+.Projects p{
+    font-size: 18px;
+    color: rgba(99, 30, 142, 0.6);
+    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-top: 0px;
+}
+.Projects h1 {
+    font-size: 44px;
+    color: rgba(99, 30, 142, 0.685);
+    margin-bottom: 20px; 
+}
+.Projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.Projects-grid .project-card{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(99, 30, 142, 0.6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: rgba(99, 30, 142, 0.6);
+}
+
+.Projects-grid .project-card button {
+    
+    background-color: rgba(99, 30, 142, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.Projects-grid .project-card button a{
+    text-decoration: none;
+    color: white;
+}
+.Projects-grid .project-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.Projects-grid .project-card button:hover{
+    background-color: rgba(99, 30, 142, 0.8);
+}
+.Skills{
+    text-align: center;
+    color: rgba(99, 30, 142, 0.6);
+    margin-top: 50px;
+}
+.Skills h1 {
+    font-size: 44px;
+    color: rgba(99, 30, 142, 0.564);
+    margin-bottom: 20px; 
+}
+.Skills p{
+    font-size: 18px;
+    color: rgba(99, 30, 142, 0.6);
+    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-top: 0px;
+}
+.Skills ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+.skills-floating-container {
+    display: flex;
+    flex-wrap: wrap;     
+    justify-content: center;
+    gap: 20px;           
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+}
+.skill-bubble {
+    background-color: rgba(99, 30, 142, 0.05); 
+    color: rgba(99, 30, 142, 0.85);
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;                       
+    border: 1px solid rgba(99, 30, 142, 0.1);
+    box-shadow: 0 4px 10px rgba(99, 30, 142, 0.03);
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+skill-bubble:nth-child(2n) {
+    animation-delay: 0.5s;
+    animation-duration: 4.5s; /* Slightly slower loop */
+}
+
+.skill-bubble:nth-child(3n) {
+    animation-delay: 1s;
+    animation-duration: 3.8s; /* Slightly faster loop */
+}
+
+.skill-bubble:nth-child(4n) {
+    animation-delay: 1.5s;
+}
+
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust this to control how high they float up */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Interactive Hover State */
+.skill-bubble:hover {
+    background-color: rgba(99, 30, 142, 0.15);
+    transform: scale(1.05) translateY(-5px); /* Pops up distinctly when hovered */
+    transition: background 0.2s, transform 0.2s;
+    cursor: default;
+}
+.Contact {
+    text-align: center;
+    color: rgba(99, 30, 142, 0.6);
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+}
+.Contact h1 {
+    font-size: 44px;
+    color: rgba(99, 30, 142, 0.564);
+    margin-bottom: 20px; 
+}
+.Contact p{
+    font-size: 18px;
+    color: rgba(99, 30, 142, 0.6);
+    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-top: 0px; 
+}
+.Contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Uniform spacing between Email, LinkedIn, and Phone */
+    flex-wrap: wrap; /* Keeps it safe on smaller screens */
+}
+.Contact-info {
+    font-size: 16px;
+    color: rgba(99, 30, 142, 0.7); /* Subtle theme color for labels */
+}
+
+.Contact-info strong {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.Contact-info a {
+    text-decoration: none; /* REMOVES THE BLUE UNDERLINE */
+    color: rgba(99, 30, 142, 0.9); /* Rich purple for the link itself */
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 1px solid transparent; /* Hidden underline ready for hover */
+    padding-bottom: 2px;
+}
+
+/* Elegant, non-aggressive hover effect */
+.Contact-info a:hover {
+    color: rgba(99, 30, 142, 1);
+    border-bottom: 1px solid rgba(99, 30, 142, 0.6); /* Clean, customized underline on hover */
+}
+/* ==========================================================================
+ /* ==========================================================================
+   MEDIA QUERY: Optimized to keep your layout intact on mobile screens
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    
+    /* 1. NAVBAR FIXED FOR MOBILE */
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .navbar ul { gap: 15px; }
+    .navbar ul li a { font-size: 15px; }
+
+    /* 2. THE HERO RESCUE: SWITCHES TO A BEAUTIFUL VERTICAL SCRAPBOOK FLOW */
+    .profile-container {
+        display: flex;
+        flex-direction: column;   /* Stacks elements gracefully on narrow screens */
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        gap: 30px;               /* Leaves a clean intentional gap between photo and paper */
+        
+        /* Keep your purple checkered grid running in the background */
+        background-image: url('assets/herosection-bg.png'); 
+        background-size: repeat;  /* Allows the pattern to tile smoothly down the screen */
+        min-height: auto;
+    }
+    .profile-container .text-block {
+        background-color: rgb(247, 244, 235);    
+        border-radius: 16px;     
+    }
+
+    /* THE PHOTO */
+    .profile-container img {
+        width: 80%;               /* Looks beautifully prominent on a phone screen */
+        max-width: 280px;         /* Keeps it within safe limits */
+        height: auto;
+        border-radius: 16px;      /* Matches your desktop image rounded corners */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        margin: 0 auto;
+    }
+
+    /* THE NOTEPAD: Turning the container itself into the paper sheet */
+    .text-block {
+        width: 90%;               /* Spreads beautifully across the phone screen width */
+        max-width: 360px;
+        margin: 0 auto;
+        
+        /* 💡 MAGIC TRICK: We apply the torn paper image directly to this block! */
+        background-image: url('your-notepad-paper-texture.png'); 
+        background-size: 100% 100%; /* Stretches the paper perfectly to wrap your text lengths */
+        background-repeat: no-repeat;
+        
+        /* Add spacious padding inside so text doesn't hit the paper's edge or get covered by the paperclip */
+        padding: 40px 25px 50px 25px; 
+        
+        position: relative;       /* Keeps layout coordinate checks clean */
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Soft drop-shadow makes the paper pop off the grid */
+    }
+    
+    /* Adjust fonts gently so they layout perfectly inside the mobile paper bounds */
+    .text-block h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: rgba(99, 30, 142, 0.9);
+    }
+
+    .text-block p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        color: rgba(99, 30, 142, 0.8);
+    }
+
+    /* --- HIDING ACCIDENTALS --- */
+    /* The hand-drawn arrow line pointing sideways makes no sense when stacked vertically, so we hide it on mobile */
+    .arrow-graphic, .profile-container > svg { 
+        display: none !important; 
+    }
+
+    /* 3. PROJECTS GRID (Kept intact) */
+    .Projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    /* 4. CONTACT CHANNELS (Kept intact) */
+    .Contact-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
