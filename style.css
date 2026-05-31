@@ -25,13 +25,29 @@ body{
     text-align: right;
     text-decoration: none;
 }
-.navbar ul li a{
+/* ==========================================================================
+   SCROLL-SPY NAVBAR LINK STYLES
+   ========================================================================== */
+
+/* 1. Base style for your navbar links (make sure they have a smooth transition) */
+.navbar ul li a {
     text-decoration: none;
-    font-size: 18px;
+    color: rgba(99, 30, 142, 0.6); /* Slightly faded purple when not active */
+    font-weight: 500;
+    padding-bottom: 4px;
+    transition: all 0.3s ease; /* Makes the underline fade-in feel super smooth */
+}
+
+/* 2. Hover effect when someone mouses over a link */
+.navbar ul li a:hover {
     color: rgba(99, 30, 142, 0.9);
 }
-.navbar ul li a:active {
-    border-bottom: 2px solid rgba(99, 30, 142, 0.9);
+
+/* 💡 3. THE ACTIVE CLASS: This is what JavaScript triggers! */
+.navbar ul li a.active-nav {
+    color: rgba(99, 30, 142, 1); /* Full vibrant purple */
+    font-weight: 700;            /* Makes the text slightly bolder */
+    border-bottom: 2px solid rgba(99, 30, 142, 0.9); /* Elegant purple underline */
 }
 .logo{
     font-size: 24px;
@@ -39,19 +55,93 @@ body{
     color: rgba(99, 30, 142, 0.9);
     margin-right: auto; 
 }
-
 .profile-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    padding: 100px 210px;
-    gap: 300px; 
-    background-image: url('assets/herosection-bg.png');
-    background-size: cover;
+    align-items: center; 
+    justify-content: center; 
+    
+    padding: 100px 8%;
+    gap: 80px; 
+    
 
+    background-image: url('assets/Bg.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+   
 }
 
-/* Image styling */
+.scrapbook-element {
+    position: absolute;
+    z-index: 10;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.draggable { cursor: grab; }
+.draggable:active { cursor: grabbing; }
+
+
+.bear-sticker   { top: 40px;  left: 30px;   width: 75px;  height: auto; }
+.bow-sticker    { top: 50px;  left: 140px;  width: 45px;  height: auto; }
+.cat-sticker    { top: 120px; left: 60px;   width: 90px;  height: auto; }
+.flower-sticker { top: 240px; left: 40px;   width: 50px;  height: auto; }
+.kitty-sticker  { top: 280px; left: 110px;  width: 55px;  height: auto; }
+
+
+.cloud-sticker  { top: 35px;  right: 140px; width: 100px; height: auto; }
+.moon-sticker   { top: 90px;  right: 60px;  width: 65px;  height: auto; }
+.star-sticker   { top: 210px; right: 40px;  width: 50px;  height: auto; }
+.quote-sticker  { top: 290px; right: 120px; width: 80px;  height: auto; }
+.profile-container .profile-image{
+    flex-shrink: 0; 
+    animation: floatUp 4s ease-in-out infinite;
+}
+
+
+.profile-container .text-block {
+    flex: 1; 
+    animation: floatDown 4s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves 10px UP */
+    }
+}
+
+/* Path B: Glides Down smoothly */
+@keyframes floatDown {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px); /* Moves 10px DOWN */
+    }
+}
+
+.plane-divider {
+    will-change: transform;
+    position: relative; 
+    width: 200px; 
+    height: auto;
+    flex-shrink: 0; 
+    z-index: 5;
+    animation: planeDrift 5s ease-in-out infinite;
+}
+
+@keyframes planeDrift {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(4deg); 
+    }
+}
+
 img {
     width: 400px;
     height: auto; 
@@ -60,25 +150,40 @@ img {
     top: 30px;
 }
 
-
 .text-block {
-    flex: 1; 
+    background-image: url('assets/herosectionright.png');
+    background-size: 100% 100%; /* Forces the image to stretch completely to the borders */
+    background-repeat: no-repeat;
+    
+    /* 1. Structural dimensions to give the paper a real, large size */
+    width: 100%;
+    max-width: 520px;       /* Keeps it wide enough for your text */
+    min-height: 500px;      /* Stretches it vertically so sentences don't drop off the bottom */
+    
+    /* 2. Layout alignment rules */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the sentences vertically on the paper */
     text-align: center; 
-    position: relative;
-    bottom: -30px;
+    
+    /* 3. Padding keeps text away from the ragged edges of your paper asset */
+    padding: 60px 50px; 
+    box-sizing: border-box; /* Ensures padding doesn't break your width calculations */
 }
 
+/* 4. Fine-tune your typography spacing so it fits nicely inside the note paper */
 .text-block h1 {
-    font-size: 44px;
-    color: rgba(99, 30, 142, 0.564);
-    margin-bottom: 20px; 
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: rgba(99, 30, 142, 0.9);
 }
 
 .text-block p {
-    font-size: 18px;
-    color: rgba(99, 30, 142, 0.6);
-    margin-bottom: 12px;
+    font-size: 15px;
     line-height: 1.5;
+    margin: 8px 0;
+    color: rgba(99, 30, 142, 0.85);
 }
 
 .Projects{
@@ -288,7 +393,7 @@ skill-bubble:nth-child(2n) {
         gap: 30px;               /* Leaves a clean intentional gap between photo and paper */
         
         /* Keep your purple checkered grid running in the background */
-        background-image: url('assets/herosection-bg.png'); 
+        background-image: url('assets/Bg.png'); 
         background-size: repeat;  /* Allows the pattern to tile smoothly down the screen */
         min-height: auto;
     }
@@ -309,19 +414,17 @@ skill-bubble:nth-child(2n) {
 
     /* THE NOTEPAD: Turning the container itself into the paper sheet */
     .text-block {
+        background-color: transparent !important; 
+    box-shadow: none !important; 
+    border: none !important;
         width: 90%;               /* Spreads beautifully across the phone screen width */
         max-width: 360px;
         margin: 0 auto;
-        
-        /* 💡 MAGIC TRICK: We apply the torn paper image directly to this block! */
-        background-image: url('your-notepad-paper-texture.png'); 
-        background-size: 100% 100%; /* Stretches the paper perfectly to wrap your text lengths */
+        background-image: url('assets/herosectionright.png');
+        background-size: 100% 100%; 
         background-repeat: no-repeat;
-        
-        /* Add spacious padding inside so text doesn't hit the paper's edge or get covered by the paperclip */
         padding: 40px 25px 50px 25px; 
-        
-        position: relative;       /* Keeps layout coordinate checks clean */
+        position: relative;       
         text-align: center;
         box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Soft drop-shadow makes the paper pop off the grid */
     }
@@ -339,7 +442,9 @@ skill-bubble:nth-child(2n) {
         margin-bottom: 12px;
         color: rgba(99, 30, 142, 0.8);
     }
-
+    .plane-divider {
+        display: none !important;
+    }
     /* --- HIDING ACCIDENTALS --- */
     /* The hand-drawn arrow line pointing sideways makes no sense when stacked vertically, so we hide it on mobile */
     .arrow-graphic, .profile-container > svg { 
